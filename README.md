@@ -26,4 +26,5 @@ IPython notebooks.
 
 
 ## Reference:
-    [Notebook format](http://ipython.org/ipython-doc/dev/notebook/nbformat.html)
+
+[Notebook format](http://ipython.org/ipython-doc/dev/notebook/nbformat.html)
