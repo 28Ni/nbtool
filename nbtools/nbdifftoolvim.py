@@ -10,9 +10,13 @@ import os
 from os.path import join, splitext, relpath, isdir
 import subprocess
 
+from _version import __version__
+
 def parse_command_line():
     parser = argparse.ArgumentParser(description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--version', action='version',
+                        version='%(prog)s '+__version__)
     parser.add_argument('left', metavar='LEFT',
                        help='Left directory to compare')
     parser.add_argument('right', metavar='RIGHT',

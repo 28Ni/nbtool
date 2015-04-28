@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-import argparse
-import json
 
 """
 Write to standard output a diffable representation of IPython notebook
@@ -8,9 +6,16 @@ Write to standard output a diffable representation of IPython notebook
 Only cell sources (markdown or code) are preserved.
 """
 
+import argparse
+import json
+
+from _version import __version__
+
 def parse_command_line():
     parser = argparse.ArgumentParser(description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--version', action='version',
+                        version='%(prog)s '+__version__)
     parser.add_argument('filename', metavar='FILE.IPYNB', 
                        help='IPython notebook file.')
     return parser.parse_args()
