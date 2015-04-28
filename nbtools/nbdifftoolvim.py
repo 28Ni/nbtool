@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Diff directories LEFT and RIGHT with vim, using diffable representation of
+Diff directories LEFT and RIGHT with Vim, using diffable representation of
 IPython notebooks.
 """
 

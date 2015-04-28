@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Write to standard output a diffable representation of IPython notebook
+Write to standard output a diffable representation of IPython notebook.
 
 Only cell sources (markdown or code) are preserved.
 """

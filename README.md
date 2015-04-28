@@ -1,23 +1,21 @@
-# nbtool
-
-Provide two commands, `nbcatsrc` and `nbdifftoolvim`.
+Provides two commands, `nbcatsrc` and `nbdifftoolvim`.
 
 ## nbcatsrc
 
-Write to standard output a diffable representation of IPython notebook
+Write to standard output a diffable representation of IPython notebook.
 
 Only cell sources (markdown or code) are preserved.
 
 ## nbdifftoolvim
 
-Diff directories LEFT and RIGHT with vim, using diffable representation of
+Diff directories LEFT and RIGHT with Vim, using diffable representation of
 IPython notebooks.
 
 ## Prerequisites
 
 The [vim-dirdiff](https://github.com/will133/vim-dirdiff) Vim plugin must be installed.
 
-## Install
+## Installation
 
     python setup.py install
 
@@ -28,6 +26,6 @@ The [vim-dirdiff](https://github.com/will133/vim-dirdiff) Vim plugin must be ins
     git config difftool.default-difftool.cmd 'difftool-vim $LOCAL $REMOTE'
     git config diff.ipynb.textconv nbcatsrc
 
-## Reference:
+## References:
 
 [Notebook format](http://ipython.org/ipython-doc/dev/notebook/nbformat.html)
