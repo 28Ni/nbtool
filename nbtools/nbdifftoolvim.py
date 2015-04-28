@@ -38,9 +38,10 @@ def create_mirror(left_or_right):
     hard linked.
 
     Because notebook are copied and other files are hard linked, changes in
-    mirrors are reflected only for other files. So if left or right is working
-    directory, only changes to other files are copied back. Original notebooks
-    are not overriden with the diffable representation.
+    mirrors are reflected only for other files. So if this script is run by
+    `git difftool -d` and left or right is working directory, only changes to
+    other files are copied back. Original notebooks are not overriden with the
+    diffable representation.
     """
     rootname = lambda filename: splitext(filename)[0]
     ext = lambda filename: splitext(filename)[1]
