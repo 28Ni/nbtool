@@ -1,11 +1,23 @@
 # nbtool
-Tool for managin IPython notebooks
 
-Install:
+Provide two commands, `nbcatsrc` and `nbdifftoolvim`.
+
+## nbcatsrc
+
+Write to standard output a diffable representation of IPython notebook
+
+Only cell sources (markdown or code) are preserved.
+
+## nbdifftoolvim
+
+Diff directories LEFT and RIGHT with vim, using diffable representation of
+IPython notebooks.
+
+## Install:
 
     python setup.py install
 
-Configure git difftool:
+### Configure git difftool:
 
     echo '*.ipynb diff=ipynb' >> .gitattributes  # in Git repo
     git config diff.tool default-difftool
@@ -13,5 +25,5 @@ Configure git difftool:
     git config diff.ipynb.textconv nbcatsrc
 
 
-Reference:
+## Reference:
     [Notebook format](http://ipython.org/ipython-doc/dev/notebook/nbformat.html)
