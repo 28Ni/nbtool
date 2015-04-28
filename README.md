@@ -26,6 +26,10 @@ The [vim-dirdiff](https://github.com/will133/vim-dirdiff) Vim plugin must be ins
     git config difftool.default-difftool.cmd 'difftool-vim $LOCAL $REMOTE'
     git config diff.ipynb.textconv nbcatsrc
 
+Then you can use:
+
+    git difftool -d
+
 ## References:
 
 [Notebook format](http://ipython.org/ipython-doc/dev/notebook/nbformat.html)
