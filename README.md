@@ -23,7 +23,7 @@ The [vim-dirdiff](https://github.com/will133/vim-dirdiff) Vim plugin must be ins
 
     echo '*.ipynb diff=ipynb' >> .gitattributes  # in Git repo
     git config diff.tool default-difftool
-    git config difftool.default-difftool.cmd 'difftool-vim $LOCAL $REMOTE'
+    git config difftool.default-difftool.cmd 'nbdifftoolvim $LOCAL $REMOTE'
     git config diff.ipynb.textconv nbcatsrc
 
 Then you can use:
