@@ -115,7 +115,10 @@ def convert_to_rst(notebook, outdir, execute=False):
     rst_filename =  rst_rootname + '.rst'
     rst_filepath = os.path.join(outdir, rst_filename)
     image_dirpath = os.path.join(outdir, '%s_files' % rst_rootname)
-    image_filenames = os.listdir(image_dirpath)
+    if os.path.isdir(image_dirpath):
+        image_filenames = os.listdir(image_dirpath)
+    else:
+        image_filenames = []
 
     return RST(rst_filepath, image_dirpath, image_filenames) 
 
