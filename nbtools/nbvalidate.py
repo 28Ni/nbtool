@@ -15,10 +15,16 @@ import subprocess
 import textwrap
 import re
 import traceback
+import warnings
 
 import ghdiff
 import jinja2
 from matplotlib.testing import compare as mpl_compare
+
+def warning_on_one_line(message, category, filename, lineno, file=None, line=None):
+    return ' warning: %s\n' % (message,)
+
+warnings.formatwarning = warning_on_one_line
 
 # Come from nbconvert/nbconvert/preprocessors/tests/test_execute.py
 addr_pat = re.compile(r'0x[0-9a-f]{7,12}')
@@ -146,6 +152,9 @@ def compare_images(actual_rst, expected_rst):
         try:
             error = mpl_compare.compare_images(actual, expected, 0.001)
         except:
+            warnings.warn(
+                "Actual and expected images %s are not comparable " \
+                "(see HTML report)" % filename)
             tb = traceback.format_exc()
             image_differences.uncomparable.append(
                 UncomparableImages(
@@ -156,6 +165,9 @@ def compare_images(actual_rst, expected_rst):
             ))
         else:
             if error:
+                warnings.warn(
+                    "Actual and expected images %s are different " \
+                    "(see HTML report)" % filename)
                 image_differences.different.append(
                     DifferentImages(
                         filename,
@@ -201,5 +213,13 @@ def main():
 
     shutil.rmtree(workdir)
 
+    if actual_rst.text != expected_rst.text:
+        warnings.warn(
+            "Actual and expected reStructuredText are different "
+            "(see HTML report)")
+        return 1
+    else:
+        return 0
+
 if __name__ == '__main__':
-    main()
+    sys.exit( main() )
