@@ -41,6 +41,9 @@ class RST(object):
             Image files: {self.image_filenames}""").format(self=self)
 
 def read_image(directory, filename):
+    rootname, ext = os.path.splitext(filename)
+    if ext != '.png':
+        filename = rootname + "_%s.png" % (ext[1:],)
     filepath = os.path.join(directory, filename)
     return open(filepath, 'rb').read().encode('base64').replace('\n','')
 
