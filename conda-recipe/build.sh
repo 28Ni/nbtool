@@ -1,1 +1,2 @@
-$PYTHON setup.py install
+hash -r 
+pip install .

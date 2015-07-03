@@ -8,7 +8,7 @@ setup(
     description = 'Tools to manage IPython notebooks',
     url = 'https://github.com/28Ni/nbtools',
     packages = ['nbtools',],
-    package_data = {'klink': [
+    package_data = {'nbtools': [
         'templates/report.html',
     ]},
     entry_points = {
