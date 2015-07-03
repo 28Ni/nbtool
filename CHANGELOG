@@ -3,3 +3,7 @@
 
 0.1.1:
   - Fix templates/report.html install.
+
+0.1.2:
+  - Fix when notebook have no images.
+  - Fix when notebook have non-png images.
