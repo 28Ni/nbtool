@@ -66,7 +66,10 @@ class DifferentImages(object):
         self.error = error
 
         rootname, ext = os.path.splitext(filename)
-        diff_filename = rootname + '-failed-diff' + ext
+        if ext == '.png':
+            diff_filename = rootname + '-failed-diff.png'
+        else:
+            diff_filename = rootname + '_%s-failed-diff.png' % (ext[1:],)
 
         self.actual_image = read_image(actual_dir, filename)
         self.expected_image = read_image(expected_dir, filename)
