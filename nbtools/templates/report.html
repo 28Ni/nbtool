@@ -1,0 +1,73 @@
+<html>
+
+  <head>
+    <title> nbvalidate </title>
+  </head>
+
+  <body>
+    <h1> Notebook {{ name }} </h1>
+
+    <h2> rst file diff </h2>
+    {{ diff }}
+
+    <h2> Image only in actual rst </h2>
+    <ul>
+    {% for name in only_in_actual %}
+      <li> {{ name }} </li>
+    {% endfor %}
+    </ul>
+
+    <h2> Image only in expected rst </h2>
+    <ul>
+    {% for name in only_in_expected %}
+      <li> {{ name }} </li>
+    {% endfor %}
+    </ul>
+
+    <h2> Image that can not be compared (typically because of different size)</h2>
+    {% for im in uncomparable_images %}
+    <h3> {{ im.filename }} </h3>
+    <!--traceback-->
+    <h4> traceback </h4>
+    <pre>
+        {{ im.traceback }}
+    </pre>
+    <!--actual image-->
+    <h4> actual image </h4>
+    <div>
+        <img src="data:image/png;base64,{{im.actual_image}}">
+    </div>
+    <!--expected image-->
+    <h4> expected image </h4>
+    <div>
+        <img src="data:image/png;base64,{{im.expected_image}}">
+    </div>
+    {% endfor %}
+
+    <h2> Image that are different </h2>
+    {% for im in different_images %}
+    <h3> {{ im.filename }} </h3>
+    <!--error message-->
+    <h4> error message</h4>
+    <pre>
+        {{ im.error }}
+    </pre>
+    <!--actual image-->
+    <h4> actual image </h4>
+    <div>
+        <img src="data:image/png;base64,{{im.actual_image}}">
+    </div>
+    <!--expected image-->
+    <h4> expected image </h4>
+    <div>
+        <img src="data:image/png;base64,{{im.expected_image}}">
+    </div>
+    <!--difference image-->
+    <h4> difference image </h4>
+    <div>
+        <img src="data:image/png;base64,{{im.diff_image}}">
+    </div>
+    {% endfor %}
+  </body>
+
+</html>
