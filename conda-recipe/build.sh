@@ -1,2 +1,1 @@
-hash -r 
 pip install .
